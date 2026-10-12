@@ -1,5 +1,8 @@
 # Beyond Prevention: Post-Compromise Attack Detection in Java Microservice Architectures Using Gateway-Injected Honeytokens
 
+> 🌐 **[View the project landing page (GitHub Pages)](https://rammohankibm.github.io/post-compromise-honeytoken-detection/)**
+> *(Served from `index.html` — enable GitHub Pages in repo Settings → Pages → Source: GitHub Actions, if not already active.)*
+
 A **honeytoken-based post-compromise detection system** for Java microservice ecosystems built with
 **Spring Cloud Gateway** and **Redis**, implementing the approach described in the paper:
 
