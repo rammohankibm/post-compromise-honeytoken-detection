@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIRAGE 2026 | Beyond Prevention: Post-Compromise Attack Detection</title>
+<style>
+  :root {
+    --primary: #0f2027;
+    --accent: #00adb5;
+    --accent-dark: #007a80;
+    --bg-light: #f4f7f8;
+    --text-dark: #222;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    background: var(--bg-light);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--primary), var(--accent-dark));
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  header .conference-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: 2.2rem;
+    max-width: 900px;
+    margin: 0 auto 10px;
+  }
+  header p.date-venue {
+    margin-top: 14px;
+    font-size: 1.05rem;
+    opacity: 0.9;
+  }
+  nav {
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 14px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+  }
+  section { margin-bottom: 50px; }
+  h2 {
+    color: var(--primary);
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+  }
+  .about p {
+    font-size: 1.05rem;
+    max-width: 800px;
+  }
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  .topic-card {
+    background: #fff;
+    border-left: 5px solid var(--accent);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    font-weight: 500;
+    transition: transform 0.2s;
+  }
+  .topic-card:hover { transform: translateY(-4px); }
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .info-card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .info-card h3 {
+    color: var(--accent-dark);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  .info-card a { color: var(--accent-dark); }
+  .cta {
+    text-align: center;
+    background: var(--primary);
+    color: #fff;
+    padding: 50px 20px;
+    border-radius: 10px;
+  }
+  .cta h2 { color: #fff; border-color: var(--accent); }
+  .cta .btn {
+    display: inline-block;
+    margin-top: 16px;
+    background: var(--accent);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .cta .btn:hover { background: var(--accent-dark); }
+  footer {
+    background: var(--primary);
+    color: #ddd;
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.9rem;
+  }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="conference-tag">MIRAGE 2026</span>
+  <h1>Beyond Prevention: Post-Compromise Attack Detection in Java Microservice Architectures Using Gateway-Injected Honeytokens</h1>
+  <p class="date-venue">Planned for 2026 &bull; Vels Institute of Science, Technology &amp; Advanced Studies (VISTAS), Chennai, India</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#topics">Topics</a>
+  <a href="#submission">Submission</a>
+  <a href="#organizers">Organizers</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main>
+  <section id="about" class="about">
+    <h2>About the Conference</h2>
+    <p>
+      MIRAGE 2026 brings together researchers and practitioners to explore deception-based
+      security techniques for modern Java microservice ecosystems. This track focuses on
+      detecting post-compromise attacker activity through gateway-injected honeytokens,
+      offering a novel layer of defense that goes beyond traditional prevention-first security models.
+    </p>
+  </section>
+
+  <section id="topics">
+    <h2>Topics of Interest</h2>
+    <div class="topics-grid">
+      <div class="topic-card">Microservice Security</div>
+      <div class="topic-card">Deception-Based Intrusion Detection</div>
+      <div class="topic-card">API Gateway Security</div>
+      <div class="topic-card">Java Spring Boot Cybersecurity</div>
+      <div class="topic-card">Post-Compromise Detection</div>
+    </div>
+  </section>
+
+  <section id="submission">
+    <h2>Submission &amp; Venue Details</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Submission Platform</h3>
+        <p>Papers are to be submitted via <strong>EasyChair</strong>.</p>
+      </div>
+      <div class="info-card">
+        <h3>Venue</h3>
+        <p>Vels Institute of Science, Technology &amp; Advanced Studies (VISTAS), Chennai, India</p>
+      </div>
+      <div class="info-card">
+        <h3>Date</h3>
+        <p>2026 (Planned)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="organizers">
+    <h2>Organizer</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Rammohan K</h3>
+        <p>Computer Science Department<br>
+        Vels Institute of Science, Technology &amp; Advanced Studies (VISTAS)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="cta">
+      <h2>Get in Touch</h2>
+      <p>For queries regarding submissions or the conference, reach out to the contacts below.</p>
+      <p style="margin-top:14px;">
+        <a href="mailto:sumana.se@vistas.ac.in" style="color:#fff;">sumana.se@vistas.ac.in</a> &nbsp;|&nbsp;
+        <a href="mailto:thirumal.se@vistas.ac.in" style="color:#fff;">thirumal.se@vistas.ac.in</a>
+      </p>
+      <a class="btn" href="mailto:sumana.se@vistas.ac.in,thirumal.se@vistas.ac.in">Contact Us</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2026 MIRAGE Conference &mdash; Organized by Rammohan K, Computer Science, VISTAS Chennai.
+</footer>
+
+</body>
+</html>
+
