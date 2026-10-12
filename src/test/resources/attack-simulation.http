@@ -1,0 +1,152 @@
+### ==============================================================
+### Deception-Based Intrusion Detection - Attack Simulation
+### Use IntelliJ HTTP Client to run these requests
+### ==============================================================
+
+### ----- LEGITIMATE REQUESTS (should pass through) -----
+
+### 1. List users (legitimate)
+GET http://localhost:8080/api/users
+Accept: application/json
+
+###
+
+### 2. Get single user (legitimate)
+GET http://localhost:8080/api/users/1
+Accept: application/json
+
+###
+
+### 3. Create user (legitimate)
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "username": "charlie",
+  "email": "charlie@example.com"
+}
+
+###
+
+### 4. List orders (legitimate)
+GET http://localhost:8080/api/orders
+Accept: application/json
+
+###
+
+### 5. Process payment (legitimate)
+POST http://localhost:8080/api/payments/process
+Content-Type: application/json
+
+{
+  "orderId": "ORD-001",
+  "amount": 49.99,
+  "currency": "USD"
+}
+
+###
+
+### ==============================================================
+### ATTACK SIMULATIONS - These should trigger HONEYTOKEN_ALERT
+### ==============================================================
+
+### ATTACK 1: Honeytoken API key use (credential theft / token replay)
+GET http://localhost:8080/api/users
+X-API-Key: HONEY-KEY-ALPHA-0001
+Accept: application/json
+
+###
+
+### ATTACK 2: Second honeytoken API key
+GET http://localhost:8080/api/orders
+X-API-Key: HONEY-KEY-BETA-9999
+Accept: application/json
+
+###
+
+### ATTACK 3: Endpoint enumeration - decoy internal admin
+GET http://localhost:8080/internal/admin
+Accept: application/json
+
+###
+
+### ATTACK 4: Endpoint enumeration - decoy config endpoint
+GET http://localhost:8080/internal/config
+Accept: application/json
+
+###
+
+### ATTACK 5: Endpoint enumeration - decoy debug endpoint
+GET http://localhost:8080/internal/debug
+Accept: application/json
+
+###
+
+### ATTACK 6: Actuator env endpoint scan
+GET http://localhost:8080/actuator/env
+Accept: application/json
+
+###
+
+### ATTACK 7: JWT token with honeytoken claim (token replay)
+# The JWT payload contains: { "sub": "attacker", "hny": "honey-role-admin-9x" }
+# This simulates an attacker who found a leaked JWT containing a honeytoken claim
+GET http://localhost:8080/api/users
+Authorization: Bearer eyJhbGciOiJub25lIn0.eyJzdWIiOiJhdHRhY2tlciIsImhueSI6Imhvbmv5LXJvbGUtYWRtaW4tOXgiLCJpYXQiOjE3MjI4NTMyMDB9.
+Accept: application/json
+
+###
+
+### ATTACK 8: JWT with second honeytoken claim
+GET http://localhost:8080/api/orders
+Authorization: Bearer eyJhbGciOiJub25lIn0.eyJzdWIiOiJhdHRhY2tlciIsImhueSI6Imhvbmv5LXN2Yy1zZWNyZXQtMDA3IiwiaWF0IjoxNzIyODUzMjAwfQ.
+Accept: application/json
+
+###
+
+### ==============================================================
+### HONEYTOKEN MANAGEMENT (honeytoken-service on :8084)
+### ==============================================================
+
+### Register a new API key honeytoken
+POST http://localhost:8084/honeytokens?type=API_KEY&token=MY-CUSTOM-HONEY-KEY&description=Custom+decoy+key
+Accept: application/json
+
+###
+
+### Register a new endpoint honeytoken
+POST http://localhost:8084/honeytokens?type=INTERNAL_ENDPOINT&path=/internal/vault&description=Decoy+vault+endpoint
+Accept: application/json
+
+###
+
+### List all honeytokens
+GET http://localhost:8084/honeytokens
+Accept: application/json
+
+###
+
+### Get alert log (detection results)
+GET http://localhost:8084/honeytokens/alerts
+Accept: application/json
+
+###
+
+### Get metrics summary
+GET http://localhost:8084/honeytokens/metrics
+Accept: application/json
+
+###
+
+### Gateway metrics (Prometheus)
+GET http://localhost:8080/actuator/prometheus
+Accept: text/plain
+
+###
+
+### Gateway health
+GET http://localhost:8080/actuator/health
+Accept: application/json
+
+###
+

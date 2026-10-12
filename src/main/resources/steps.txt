@@ -1,0 +1,13 @@
+What you can do fully in IntelliJ?
+----------------------------------------
+Project setup — Use Spring Initializr (built into IntelliJ Ultimate via File → New → Project → Spring Initializr, or use start.spring.io and import) to generate your multi-module structure:
+api-gateway (Spring Cloud Gateway)
+user-service, order-service, payment-service (simple Spring Boot REST services)
+honeytoken-service (or embed it in the gateway)
+Redis — You'll need Redis running locally. Easiest options:
+Run Redis via Docker (docker run -p 6379:6379 redis) — IntelliJ has a Docker plugin/integration so you can manage this from within the IDE.
+Or install Redis natively if you're on Linux/Mac (Windows needs WSL or Docker).
+Writing the gateway filters, honeytoken logic, alerting — 100% doable in IntelliJ, it's just Java/Spring code.
+Running multiple services simultaneously — IntelliJ lets you create multiple Run Configurations (one per microservice) and run them together, or use Compound Run Configurations to start all services with one click.
+Simulating attacks — You can write simple Java test clients, or use IntelliJ's built-in HTTP Client (.http files) to simulate legitimate vs. malicious requests (token replay, endpoint scanning) right from the editor.
+Metrics/Evaluation — Micrometer + Actuator endpoints can be hit directly and logged; you can compute detection rate/false positives from your logs using a simple Java or Python script, or even just Excel/Sheets on exported CSV logs.
